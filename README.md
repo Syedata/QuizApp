@@ -9,9 +9,11 @@
 - The activity state must be saved when the device is rotated so the user can continue the quiz.
 - The Quiz App also supports Urdu language
 <div align="center">
-<img src="Alert.png" width="300" height="600" >
-<img src="getAverage.png" width="300" height="600">
 <img src="menu.png" width="300" height="600">
+<img src="getAverage.png" width="300" height="600">
+<img src="Alert.png" width="300" height="600" >
+</div>
+<div align="center">
 <img src="UrduLanguage.png" width="300" height="600">
 <img src="UrduLanguageMenu.png" width="300" height="600">
 <img src="landscape.png" width="600" height="300">
