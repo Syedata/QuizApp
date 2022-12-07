@@ -18,15 +18,15 @@ import android.widget.Toast;
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
-    Button trueButton,  falseButton;
+    Button trueButton, falseButton;
     ProgressBar progressBar;
     QuestionBank questionBank = new QuestionBank();
     FileStorageManager storageManager = new FileStorageManager();
 
-    //ArrayList<Question> Question;
     int position;
     int progress = 0;
     int score = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +46,14 @@ public class MainActivity extends AppCompatActivity {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(questionBank.listOfQuestions.get(position).isAnswerId() == true) {
+                if (questionBank.listOfQuestions.get(position).isAnswerId()) {
                     score++;
                     Toast.makeText(MainActivity.this, R.string.correct_answer, Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(MainActivity.this, R.string.incorrect_answer, Toast.LENGTH_SHORT).show();
                 }
-                  position++;
-                if(position == questionBank.listOfQuestions.size()) {
+                position++;
+                if (position == questionBank.listOfQuestions.size()) {
                     position = 0;
                     showScoreDialog();
                 }
@@ -68,15 +67,14 @@ public class MainActivity extends AppCompatActivity {
         falseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(questionBank.listOfQuestions.get(position).isAnswerId() == false) {
+                if (!questionBank.listOfQuestions.get(position).isAnswerId()) {
                     score++;
                     Toast.makeText(MainActivity.this, R.string.correct_answer, Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(MainActivity.this, R.string.incorrect_answer, Toast.LENGTH_SHORT).show();
                 }
                 position++;
-                if(position == questionBank.listOfQuestions.size()) {
+                if (position == questionBank.listOfQuestions.size()) {
                     position = 0;
                     showScoreDialog();
 
@@ -88,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void updateQuestionFragment(int questionID, int colorID) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.findFragmentById(R.id.frame_layout);
@@ -101,10 +100,11 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putInt("CurrentIndexPosition", position);
     }
-    public void showScoreDialog(){
+
+    public void showScoreDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Your Score is " + score + " out of 10");
-        String dialogString = ""+ score;
+        String dialogString = "" + score;
         builder.setPositiveButton(R.string.saved, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setNegativeButton(R.string.ignored, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                progress =0;
+                progress = 0;
                 progressBar.setProgress(0);
                 score = 0;
                 dialog.dismiss();
@@ -130,23 +130,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menuitems,menu);
+        menuInflater.inflate(R.menu.menuitems, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-        switch (item.getItemId()){
-            case R.id.average:{
+        switch (item.getItemId()) {
+            case R.id.average: {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 File f = getFileStreamPath("quizScore.txt");
-                if(f.length() != 0) {
-                builder.setMessage(storageManager.getTheAverage(this));
-                builder.setPositiveButton(R.string.ok_button, null);
-                builder.create().show();
+                if (f.length() != 0) {
+                    builder.setMessage(storageManager.getTheAverage(this));
+                    builder.setPositiveButton(R.string.ok_button, null);
+                    builder.create().show();
                     progressBar.setProgress(0);
-                }
-                else {
+                } else {
                     builder.setMessage(R.string.previous_results);
                     builder.setPositiveButton(R.string.ok_button, null);
                     builder.create().show();
@@ -156,16 +156,15 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             }
-            case R.id.reset_results:{
-              storageManager.resetAllResults(this);
+            case R.id.reset_results: {
+                storageManager.resetAllResults(this);
                 Toast.makeText(this, R.string.previous_erased, Toast.LENGTH_SHORT).show();
+                break;
             }
 //            case R.id.select_questions:{
-//
 //                break;
 //            }
 //            case R.id.add_questions:{
-//
 //                break;
 //            }
             default:

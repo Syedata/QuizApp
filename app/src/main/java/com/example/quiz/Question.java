@@ -1,9 +1,9 @@
 package com.example.quiz;
 
 public class Question {
-   private int QuestionId;
-   private boolean AnswerId;
-   private int ColorId;
+    private int QuestionId;
+    private boolean AnswerId;
+    private int ColorId;
 
     public Question(int questionId, boolean answerId, int colorId) {
         QuestionId = questionId;

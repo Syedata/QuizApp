@@ -28,7 +28,7 @@ public class FileStorageManager {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if(pw != null){
+            if (pw != null) {
                 pw.flush();
                 pw.close();
             }
@@ -37,7 +37,6 @@ public class FileStorageManager {
 
     public void resetAllResults(Context context) {
         FileOutputStream fos;
-
         try {
             fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             fos.write(("").getBytes());
@@ -69,7 +68,7 @@ public class FileStorageManager {
             e.printStackTrace();
         }
 
-        return "Your correct answers  are "+ avg + " in " + NoOfAttempts + " attempts.";
+        return "Your correct answers  are " + avg + " in " + NoOfAttempts + " attempts.";
     }
 
 }
