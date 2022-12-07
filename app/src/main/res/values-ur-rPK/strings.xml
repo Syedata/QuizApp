@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">کوئز</string>
+    <string name="question1">اوٹاوا کینیڈا کا دارالحکومت ہے۔</string>
+    <string name="question2">شکاگو ریاستہائے متحدہ امریکہ کا دارالحکومت ہے۔</string>
+    <string name="question3">کراچی پاکستان کا دار الحکومت ہے۔</string>
+    <string name="question4">دبئی متحدہ عرب امارات کا دارالحکومت ہے۔</string>
+    <string name="question5">استنبول ترکی کا دارالحکومت ہے۔</string>
+    <string name="question6">لندن برطانیہ کا دارالحکومت ہے۔</string>
+    <string name="question7">ریاض سعودی عرب کا دارالحکومت ہے۔</string>
+    <string name="question8">پیرس فرانس کا دار الحکومت ہے۔</string>
+    <string name="question9">بیجنگ چین کا دارالحکومت ہے</string>
+    <string name="question10">نئی دہلی بھارت کا دار الحکومت ہے۔</string>
+    <string name="true_but">درست</string>
+    <string name="false_but">غلط</string>
+    <string name="get_the_average">اوسط حاصل کریں</string>
+    <string name="reset_the_saved_result">محفوظ شدہ نتیجہ پھر سیٹ کریں</string>
+<!--    <string name="select_the_number_of_question">سوال کا نمبر منتخب کریں</string>-->
+<!--    <string name="used_add_question">ایک نیا سوال شامل کریں</string>-->
+    <string name="previous_results">کوئی پچھلے نتائج نہیں ہیں</string>
+    <string name="previous_erased">پچھلے تمام نتائج مٹا دیئے گئے ہیں</string>
+    <string name="saved">محفوظ</string>
+    <string name="ignored">نظر انداز</string>
+    <string name="correct_answer">صحیح جواب</string>
+    <string name="incorrect_answer">غلط جواب</string>
+    <string name="ok_button">ٹھيک ہے</string>
+</resources>

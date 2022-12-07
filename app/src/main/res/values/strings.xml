@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="question1">Ottawa is the capital of Canada</string>
+    <string name="question2">Chicago is the capital of United States</string>
+    <string name="question3">Karachi is the capital of Pakistan</string>
+    <string name="question4">Dubai is the capital city of United Arab Emirates</string>
+    <string name="question5">Istanbul is the capital of Turkey</string>
+    <string name="question6">London is the capital of United Kingdom</string>
+    <string name="question7">Riyadh is the capital of Saudi Arabia</string>
+    <string name="question8">Paris is the capital of France</string>
+    <string name="question9">Beijing is the capital of China</string>
+    <string name="question10">New Delhi is the capital of India</string>
+    <string name="true_but">True</string>
+    <string name="false_but">False</string>
+    <string name="get_the_average">Get the Average</string>
+    <string name="reset_the_saved_result">Reset the saved Result</string>
+<!--    <string name="select_the_number_of_question">Select the number of question</string>-->
+<!--    <string name="used_add_question">Add a new question</string>-->
+    <string name="previous_results">There are no previous results</string>
+    <string name="previous_erased">All previous results have been erased</string>
+    <string name="saved">SAVE</string>
+    <string name="ignored">IGNORE</string>
+    <string name="correct_answer">Correct Answer</string>
+    <string name="incorrect_answer">Incorrect Answer</string>
+    <string name="ok_button">OK</string>
+</resources>
