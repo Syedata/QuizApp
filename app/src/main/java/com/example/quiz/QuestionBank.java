@@ -22,7 +22,6 @@ public class QuestionBank {
 
         Collections.shuffle(listOfColors);
 
-
         Question question1 = new Question(R.string.question1, true, listOfColors.get(0));
         Question question2 = new Question(R.string.question2, false, listOfColors.get(1));
         Question question3 = new Question(R.string.question3, false, listOfColors.get(2));
@@ -47,8 +46,5 @@ public class QuestionBank {
 
         Collections.shuffle(listOfQuestions);
 
-
     }
-
-
 }

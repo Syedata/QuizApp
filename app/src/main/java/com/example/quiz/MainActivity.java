@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
     Button trueButton, falseButton;
@@ -53,14 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.incorrect_answer, Toast.LENGTH_SHORT).show();
                 }
                 position++;
-                if (position == questionBank.listOfQuestions.size()) {
-                    position = 0;
-                    showScoreDialog();
-                }
-                updateQuestionFragment(questionBank.listOfQuestions.get(position).getQuestionId(), questionBank.listOfQuestions.get(position).getColorId());
-                progress++;
-                progressBar.setProgress(progress);
-                progressBar.setMax(10);
+                nextQuestion();
             }
         });
 
@@ -74,20 +68,25 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.incorrect_answer, Toast.LENGTH_SHORT).show();
                 }
                 position++;
-                if (position == questionBank.listOfQuestions.size()) {
-                    position = 0;
-                    showScoreDialog();
-
-                }
-                updateQuestionFragment(questionBank.listOfQuestions.get(position).getQuestionId(), questionBank.listOfQuestions.get(position).getColorId());
-                progress++;
-                progressBar.setProgress(progress);
-                progressBar.setMax(10);
+                nextQuestion();
             }
         });
     }
 
-    private void updateQuestionFragment(int questionID, int colorID) {
+    public void nextQuestion() {
+        if (position == questionBank.listOfQuestions.size()) {
+            position = 0;
+            Collections.shuffle(questionBank.listOfColors);
+            Collections.shuffle(questionBank.listOfQuestions);
+            showScoreDialog();
+        }
+        updateQuestionFragment(questionBank.listOfQuestions.get(position).getQuestionId(), questionBank.listOfQuestions.get(position).getColorId());
+        progress++;
+        progressBar.setProgress(progress);
+        progressBar.setMax(10);
+    }
+
+    public void updateQuestionFragment(int questionID, int colorID) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.findFragmentById(R.id.frame_layout);
         QuestionFragment questionfragment = QuestionFragment.newInstance(questionID, colorID);
@@ -101,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt("CurrentIndexPosition", position);
     }
 
+    public void resetAllVariables() {
+        progress = 0;
+        progressBar.setProgress(0);
+        score = 0;
+    }
+
     public void showScoreDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Your Score is " + score + " out of 10");
@@ -109,17 +114,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 storageManager.writeResult(dialogString, MainActivity.this);
-                progress = 0;
-                progressBar.setProgress(0);
-                score = 0;
+                resetAllVariables();
             }
         });
         builder.setNegativeButton(R.string.ignored, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                progress = 0;
-                progressBar.setProgress(0);
-                score = 0;
+                resetAllVariables();
                 dialog.dismiss();
 
             }

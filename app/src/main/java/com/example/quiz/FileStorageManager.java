@@ -68,7 +68,7 @@ public class FileStorageManager {
             e.printStackTrace();
         }
 
-        return "Your correct answers  are " + avg + " in " + NoOfAttempts + " attempts.";
+        return "Your correct answers are " + avg + " in " + NoOfAttempts + " attempts.";
     }
 
 }
